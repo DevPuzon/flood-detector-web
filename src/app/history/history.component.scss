@@ -1,0 +1,61 @@
+$bg-color: #f3f3f3;
+$shadow-color: darken( $bg-color, 15%); 
+ion-col{
+    max-height: 700px;
+}
+p{
+    margin:0px;
+}
+.danger{
+    color :#FC4337;
+}
+.status{
+    color: #2A444E;
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 14px;
+    font-weight: 600;
+} 
+.item-content{ 
+    // height: 500px;
+    .card{
+        margin: 10px;
+        // height: 574px;
+        border-radius: 8px;
+        padding: 10px; 
+        box-shadow: 8px 12px 30px $shadow-color;
+        // margin: 20px;
+        img{
+            height: 100%;
+        }
+        .content{ 
+            margin: 17px;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+        }
+        .title{ 
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2A444E;
+        }
+        .c-desc{ 
+            margin: 0px;
+            font-size: 14px;
+            font-weight: inherit;
+            color: #2A444E;
+        }
+        .padding{
+            padding: 10px;
+        }
+        
+    }
+}
+
+input{
+    border: 0px;
+    margin-top: 4px;
+    width: 100%;
+}

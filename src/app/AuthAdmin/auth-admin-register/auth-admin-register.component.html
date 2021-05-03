@@ -1,0 +1,33 @@
+<ion-content   >
+  <div class="container"> 
+    <ion-label class="ion-text-center"   > 
+      <ion-text >
+        <img class="logo-circle" src="../../../assets/icon/favicon.png">
+        <p style="font-size: 35px;color: #488AFF;"><b>Admin Register</b></p> </ion-text> 
+      <form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+        <ion-item color="transparent" style="margin-top: 30px;margin-bottom: 30px;" class="ion-no-padding">
+          <ion-label position="stacked">Username</ion-label>
+          <ion-input formControlName="email" ></ion-input>
+        </ion-item>
+        <div *ngIf="submitted && f.email.errors">  
+          <div class="error-text">{{(f.email.errors.required) ? 'Username is required' :
+            (f.email.errors) ? 'Username is not valid.' :  ''}}</div>
+        </div>
+
+        <ion-item color="transparent" style="margin-bottom: 30px;" class="ion-no-padding">
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input formControlName="password" type="{{typePass}}"></ion-input>
+          <ion-icon class="passwordIcon" slot="end" name="{{imgPass}}" (click)="onClickShow()"></ion-icon>
+        </ion-item> 
+        <div *ngIf="submitted && f.password.errors">  
+          <div class="error-text">{{(f.password.errors.required) ? 'Password is required' :
+            (f.password.errors) ? 'Password is not valid.' :  ''}}</div>
+        </div>
+        <div class="signin-con"> 
+          <ion-button  style=" margin-top: 18px; width: 100%;" (click)="onSubmit()"> 
+          Sign up</ion-button> 
+        </div> 
+      </form>
+    </ion-label>
+  </div>
+ </ion-content>  

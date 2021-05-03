@@ -1,0 +1,34 @@
+ion-content {
+    .container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+      ion-label{
+          width: 350px;
+      }
+    }
+    }
+    .passwordIcon{
+        font-size:2rem !important;
+        position: relative !important;
+        top: 22px !important;
+        margin: 0 auto !important;
+    }
+.forgotpass{
+    margin-top: 8px;
+    display: inline-block;
+    p{
+        margin-top: 3px;
+        margin-bottom: 6px;
+        cursor: pointer;
+        color: #5195FF;
+    }
+}
+.logo-circle{
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}

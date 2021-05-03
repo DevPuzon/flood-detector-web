@@ -1,0 +1,103 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "FishTubeChat",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "participants",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "updatedAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "FishTubeProof",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "toUser.uid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "createdAt",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "XoxoBuy",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "headuserdata.uid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "headppaypal.create_time",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "XoxoBuy",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "headuserdata.uid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "headppaypal.create_time",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "XoxoCart",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userUid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "XoxoFav",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userUid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "XoxoProducts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userUid",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
