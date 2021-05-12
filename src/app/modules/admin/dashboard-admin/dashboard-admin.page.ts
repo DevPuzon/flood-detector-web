@@ -9,6 +9,56 @@ declare function _lineChartCon(container:string,title:string,yAxisTitle:string,c
   styleUrls: ['./dashboard-admin.page.scss'],
 })
 export class DashboardAdminPage implements OnInit {
+  dateNow:Date = new Date();
+  information_index =0;
+  informations=[ [],
+    [
+      {
+        title:"Warm",
+        description:"Barangay Disaster Risk Reduction and Managment Councils in flood-prone area. Info about flood Warming Level 1",
+      },
+      {
+        title:"Inform",
+        description:"Municipal Disaster Risk Reduction and Management Councils and Office of Civil Defense.",
+      },
+      {
+        title:"Ask",
+        description:"The Search and Rescue Team to go on standby.",
+      },
+      {
+        title:"Inform",
+        description:"Local media to broadcast status report: Flood Warming Level 1",
+      },
+    ],
+    [
+      {
+        title:"Warm",
+        description:"Barangay Disaster Risk Reduction and Managment Councils in flood-prone area. Info about flood Warming Level 2",
+      },
+      {
+        title:"Inform",
+        description:"Municipal Disaster Risk Reduction and Management Councils and Office of Civil Defense.",
+      },
+      {
+        title:"Inform",
+        description:"Local media to broadcast status report: Flood Warming Level 2",
+      }
+    ],
+    [
+      {
+        title:"Order",
+        description:"All Municipal Disaster Risk Reduction and Managment Councils to evacuate residents at risk.",
+      },
+      {
+        title:"Inform",
+        description:"Municipal Disaster Risk Reduction and Management Councils and Office of Civil Defense.",
+      },
+      {
+        title:"Inform",
+        description:"Local media to broadcast status report: Flood Warming Level 3",
+      }
+    ]
+  ]
 
   otherdatas = new Array();
   data ={
@@ -22,7 +72,7 @@ export class DashboardAdminPage implements OnInit {
     sms:null 
   };
   constructor(private db: AngularFireDatabase) { }
-  chart_water_level:any;
+  // chart_water_level:any;
   chart_water_distance:any;
   chart_water_flow:any;
   isRot = true
@@ -30,6 +80,9 @@ export class DashboardAdminPage implements OnInit {
     this.db.object('/').snapshotChanges()
     .subscribe(async res =>{
       this.data =  JSON.parse(JSON.stringify(res.payload.toJSON()));
+      this.information_index =   this.data.water_status == 'Level 1'? 1:0 ||
+      this.data.water_status == 'Level 2'? 2:0 ||
+      this.data.water_status == 'Level 3'? 3:0 ;
       
       let distances = new Array();
       let water_levels = new Array();
@@ -67,10 +120,10 @@ export class DashboardAdminPage implements OnInit {
       }
       localStorage.setItem("otherdatas",JSON.stringify(this.otherdatas));
       if(this.isRot){ 
-        this.chart_water_level = _lineChartCon("chart_water_level"," ", " ",[],[{
-          name: '',
-          data: water_levels$
-        }]);
+        // this.chart_water_level = _lineChartCon("chart_water_level"," ", " ",[],[{
+        //   name: '',
+        //   data: water_levels$
+        // }]);
         this.chart_water_distance =  _lineChartCon("chart_water_distance"," ", " ",[],[{
           name: ' ',
           data: distances$
@@ -110,7 +163,7 @@ export class DashboardAdminPage implements OnInit {
         flRate$ =flRate$.map(function(d) { return d[`label`]; })
         
         this.chart_water_distance.series[0].setData(distances$);
-        this.chart_water_level.series[0].setData(water_levels$);
+        // this.chart_water_level.series[0].setData(water_levels$);
         this.chart_water_flow.series[0].setData(flRate$);
       }
 

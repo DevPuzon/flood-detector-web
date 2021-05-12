@@ -16,6 +16,49 @@ p{
     font-size: 14px;
     font-weight: 600;
 } 
+.card-info{
+    padding: 20px;
+}
+.c-time-date{
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    p{
+        font-size: 25px;
+    }
+}
+.c-content-note{
+    padding: 14px;
+    .c-info-front{
+        display: flex;    
+        padding-bottom: 5px;
+        border-bottom: 2px solid #B1B1B1;
+        margin-bottom: 10px;
+        p{
+            margin: 0px;
+        }
+        .c-status-title{
+            margin-right: 69px;
+        }
+        .c-status{
+            font-size: 55px;
+        }
+    }
+    .c-info-main{
+        min-height: 150px;
+        background-color: #F8F4F3;
+        padding: 10px;
+        .c-info{   
+            p{
+                margin: 0px;
+            }
+            .c-desc-title{
+                margin-right: 9px;
+                width: 100px;
+            }
+        }
+    }
+}
 .item-content{ 
     // height: 500px;
     .card{
