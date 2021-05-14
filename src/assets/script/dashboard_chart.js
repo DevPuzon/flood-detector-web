@@ -55,7 +55,9 @@ function _pieChartCon(container,title,series){
    }, 1500);
 }
 
-function _lineChartCon(container,title,yAxisTitle,category,series,exporting=true){
+function _lineChartCon(container,title,
+    yAxisTitle,xAxisTitle,
+    category,series,exporting=true){
      
     var chart = Highcharts.chart(container,{
         chart: {
@@ -96,6 +98,9 @@ function _lineChartCon(container,title,yAxisTitle,category,series,exporting=true
             enabled: false
         },
         xAxis: {
+            title: {
+                text: xAxisTitle, 
+            },
             categories: category
         },
         series: series,

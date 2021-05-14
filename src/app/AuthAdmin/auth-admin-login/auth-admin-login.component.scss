@@ -5,6 +5,16 @@ ion-content {
       display: flex;
       justify-content: center;
       align-items: center;  
+
+        
+      background-image: url(https://i.pinimg.com/originals/b4/ba/ec/b4baec9a4ed14d3a3cc65fec49e106e7.jpg);
+      background-color: #cccccc;
+      /* height: 500px; */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+
       ion-label{
           width: 350px;
       }

@@ -1,6 +1,15 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 
+.c-main{
+  background-color: #E2F7FC;    
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+.card{
+  background-color: white;
+}
 .split-pane-visible >.split-pane-side {
   min-width: 200px!important;
   max-width: 250px!important;

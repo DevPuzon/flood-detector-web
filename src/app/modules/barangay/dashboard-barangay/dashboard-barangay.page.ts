@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'; 
 import { AngularFireDatabase } from '@angular/fire/database'; 
 import { Observable } from 'rxjs';
-declare function _lineChartCon(container:string,title:string,yAxisTitle:string,category:any[],series:any[],exporting:boolean):any; 
+declare function _lineChartCon(container:string,title:string,yAxisTitle:string,xAxisTitle:string,category:any[],series:any[],exporting:boolean):any; 
 
 @Component({
   selector: 'app-dashboard-barangay',
@@ -126,11 +126,11 @@ export class DashboardBarangayPage implements OnInit {
         //   name: '',
         //   data: water_levels$
         // }],false);
-        this.chart_water_distance =  _lineChartCon("chart_water_distance"," ", " ",[],[{
+        this.chart_water_distance =  _lineChartCon("chart_water_distance"," ", "Flood gauge height, cm", "Time",[],[{
           name: ' ',
           data: distances$
         }],false);
-        this.chart_water_flow =  _lineChartCon("chart_water_flow_rate"," ", " ",[],[{
+        this.chart_water_flow =  _lineChartCon("chart_water_flow_rate","","Liter","Time",[],[{
           name: ' ',
           data: flRate$
         }],false); 

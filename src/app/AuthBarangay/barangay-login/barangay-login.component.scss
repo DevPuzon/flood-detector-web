@@ -5,6 +5,16 @@ ion-content {
       display: flex;
       justify-content: center;
       align-items: center;  
+
+        
+      background-image: url(https://images.pexels.com/photos/933054/pexels-photo-933054.jpeg?cs=srgb&dl=pexels-joyston-judah-933054.jpg&fm=jpg);
+      background-color: #cccccc;
+      /* height: 500px; */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+
       ion-label{
           width: 350px;
       }

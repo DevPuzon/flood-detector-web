@@ -1,96 +1,98 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-menu-button slot="start"></ion-menu-button>
     <ion-title>Dashboard</ion-title>
   </ion-toolbar>
 </ion-header> 
 <ion-content>
-  <ion-row class="ion-justify-content-center">
-    <ion-col  size="12" size-sm="12" size-md="11" size-lg="11"> 
-      <!-- <div class="status">
-        <p class="{{data.isdanger ? 'danger': ''}}">Flood status : {{data.isdanger ? 'Danger':'Normal'}}</p>
-      </div>   -->
-        <ion-row> 
-          <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
-            <!-- <div class="chart" id="chart_water"></div> -->
-            <div class="item-content">
-              <div class="card " style="padding: 30px;">
-                <!-- <img src="https://image.freepik.com/free-vector/high-risk-meter_97886-3470.jpg"/> -->
-                <!-- <div class="chart" id="chart_water_level"></div>
-                <div class="content">
-                  <p class="title">Water level</p>
-                  <p class="c-desc">{{data.water_level}}</p>
-                  <p  class="c-desc">Status : {{data.water_status}}</p>
-                </div> -->
-                <div class="c-time-date">
-                  <p class="c-time"> {{dateNow | date:'mediumTime'}}</p>
-                  <p class="c-date">{{dateNow | date:'M/d/yyyy'}}</p>
-                </div>
-                <div class="c-content-note"> 
-                  <div class="c-info-front">
-                    <p class="c-status-title">Flood <br>Status</p>
-                    <p class="c-status"
-                     [style]="data.water_status == 'Normal' ? 'color:#2DFF3E':'' ||
-                     data.water_status == 'Level 1' ? 'color:#FCFF00':'' ||
-                     data.water_status == 'Level 2' ? 'color:#FF7A04':'' ||
-                     data.water_status == 'Level 3' ? 'color:#FF0036':''">{{data.water_status}}</p>
+  <div class="c-main"> 
+    <ion-row class="ion-justify-content-center">
+      <ion-col  size="12" size-sm="12" size-md="11" size-lg="11"> 
+        <!-- <div class="status">
+          <p class="{{data.isdanger ? 'danger': ''}}">Flood status : {{data.isdanger ? 'Danger':'Normal'}}</p>
+        </div>   -->
+          <ion-row> 
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+              <!-- <div class="chart" id="chart_water"></div> -->
+              <div class="item-content">
+                <div class="card " style="padding: 30px;">
+                  <!-- <img src="https://image.freepik.com/free-vector/high-risk-meter_97886-3470.jpg"/> -->
+                  <!-- <div class="chart" id="chart_water_level"></div>
+                  <div class="content">
+                    <p class="title">Water level</p>
+                    <p class="c-desc">{{data.water_level}}</p>
+                    <p  class="c-desc">Status : {{data.water_status}}</p>
+                  </div> -->
+                  <div class="c-time-date">
+                    <p class="c-time"> {{dateNow | date:'mediumTime'}}</p>
+                    <p class="c-date">{{dateNow | date:'M/d/yyyy'}}</p>
                   </div>
-                  <div  class="c-info-front"> 
-                    <p class="c-status-title">Water <br>Level</p>
-                    <p class="c-status">{{data.distance}} cm</p>
-                  </div>
-                  <div class="c-info-main"> 
-                    <div class="c-info" *ngFor="let info of informations[information_index]">
-                      <ion-row>
-                        <ion-col size="2">
-                          <p class="c-desc-title">{{info.title}}  </p>
-                        </ion-col>
-                        <ion-col size="10">
-                          <p class="c-description">{{info.description}}</p> 
-                        </ion-col>
-                      </ion-row>
+                  <div class="c-content-note"> 
+                    <div class="c-info-front">
+                      <p class="c-status-title">Flood <br>Status</p>
+                      <p class="c-status"
+                      [style]="data.water_status == 'Normal' ? 'color:#2DFF3E':'' ||
+                      data.water_status == 'Level 1' ? 'color:#FCFF00':'' ||
+                      data.water_status == 'Level 2' ? 'color:#FF7A04':'' ||
+                      data.water_status == 'Level 3' ? 'color:#FF0036':''">{{data.water_status}}</p>
                     </div>
-                  </div> 
+                    <div  class="c-info-front"> 
+                      <p class="c-status-title">Water <br>Level</p>
+                      <p class="c-status">{{data.distance}} cm</p>
+                    </div>
+                    <div class="c-info-main"> 
+                      <div class="c-info" *ngFor="let info of informations[information_index]">
+                        <ion-row>
+                          <ion-col size="2">
+                            <p class="c-desc-title">{{info.title}}  </p>
+                          </ion-col>
+                          <ion-col size="10">
+                            <p class="c-description">{{info.description}}</p> 
+                          </ion-col>
+                        </ion-row>
+                      </div>
+                    </div> 
+                  </div>
                 </div>
               </div>
-            </div>
-          </ion-col> 
-          <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
-            <div class="item-content"> 
-              <div class="card">
-            <!-- <img src="data:image/png;base64,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"/> -->
-                <div class="chart" id="chart_water_distance"></div>
-                <div class="content">
-                  <p class="title">Water distance</p>
-                <p class="c-desc">{{data.distance}} cm</p>
+            </ion-col> 
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+              <div class="item-content"> 
+                <div class="card">
+              <!-- <img src="data:image/png;base64,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"/> -->
+                  <div class="chart" id="chart_water_distance"></div>
+                  <div class="content">
+                    <p class="title">Water distance</p>
+                  <p class="c-desc">{{data.distance}} cm</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </ion-col> 
-          <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
-            <div class="item-content">
-              <div class="card">
-                <!-- <img src="../../../assets/flow.jpg"/> -->
-                <div class="chart" id="chart_water_flow_rate"></div>
-                <div class="content"> 
-                  <p class="title">Water Flow Rate</p>
-                  <p class="c-desc">{{data.flRate}} L/min</p>
+            </ion-col> 
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+              <div class="item-content">
+                <div class="card">
+                  <!-- <img src="../../../assets/flow.jpg"/> -->
+                  <div class="chart" id="chart_water_flow_rate"></div>
+                  <div class="content"> 
+                    <p class="title">Water Flow Rate</p>
+                    <p class="c-desc">{{data.flRate}} L/min</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </ion-col> 
-          <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
-            <div class="item-content">
-              <div class="card padding" style="margin-left: 10px;">
-                <p class="title" style="margin-top:20px">Water Quantity</p>
-                <p class="c-desc">{{data.flmL}} mL</p>
-                <p class="c-desc">{{data.flL}} L</p>
-                <p class="title" style="margin-top:20px">Latest sms alert</p>
-                <p class="c-desc">{{data.sms}}</p>
-              </div> 
-            </div>
-          </ion-col>   
-        </ion-row>
-    </ion-col>
-  </ion-row>
+            </ion-col> 
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+              <div class="item-content">
+                <div class="card padding" style="margin-left: 10px;">
+                  <p class="title" style="margin-top:20px">Water Quantity</p>
+                  <p class="c-desc">{{data.flmL}} mL</p>
+                  <p class="c-desc">{{data.flL}} L</p>
+                  <p class="title" style="margin-top:20px">Latest sms alert</p>
+                  <p class="c-desc">{{data.sms}}</p>
+                </div> 
+              </div>
+            </ion-col>   
+          </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content> 

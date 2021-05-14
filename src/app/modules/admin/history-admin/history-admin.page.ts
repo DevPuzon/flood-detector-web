@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 declare var $:any;
-declare function _lineChartCon(container:string,title:string,yAxisTitle:string,category:any[],series:any[]):any; 
+declare function _lineChartCon(container:string,title:string,yAxisTitle:string,xAxisTitle:string,category:any[],series:any[],exporting:boolean):any; 
 @Component({
   selector: 'app-history-admin',
   templateUrl: './history-admin.page.html',
@@ -17,7 +17,7 @@ export class HistoryAdminPage implements OnInit {
     date:null
   }
 
-   chart_water_level:any;
+  //  chart_water_level:any;
    chart_water_distance:any;
    chart_water_flow:any;
    startDt =  new Date().setDate(new Date().getDate()-1);
@@ -86,18 +86,19 @@ export class HistoryAdminPage implements OnInit {
      water_levels$ =this.water_levels= water_levels$.map(function(d) { return d[`label`]; })
      console.log(distances$)
  
-     this.chart_water_level = _lineChartCon("h_chart_water_level"," ", " ",[],[{
-       name: '',
-       data: water_levels$
-     }]);
-     this.chart_water_distance =  _lineChartCon("h_chart_water_distance"," ", " ",[],[{
-       name: ' ',
-       data: distances$
-     }]);
-     this.chart_water_flow =  _lineChartCon("h_chart_water_flow_rate"," ", " ",[],[{
-       name: ' ',
-       data: flRate$
-     }]); 
+    //  this.chart_water_level = _lineChartCon("h_chart_water_level"," ", " ",[],[{
+    //    name: '',
+    //    data: water_levels$
+    //  }]);
+    
+    this.chart_water_distance =  _lineChartCon("chart_water_distance"," ", "Flood gauge height, cm", "Time",[],[{
+      name: ' ',
+      data: distances$
+    }],false);
+    this.chart_water_flow =  _lineChartCon("chart_water_flow_rate","","Liter","Time",[],[{
+      name: ' ',
+      data: flRate$
+    }],false); 
      this.reChart();
    } 
    initUIDate() {
@@ -189,8 +190,7 @@ export class HistoryAdminPage implements OnInit {
      water_levels$ =this.water_levels=water_levels$.map(function(d) { return d[`label`]; })
      console.log(this.distances)
  
-     this.chart_water_distance.series[0].setData(distances$);
-     this.chart_water_level.series[0].setData(water_levels$);
+     this.chart_water_distance.series[0].setData(distances$); 
      this.chart_water_flow.series[0].setData(flRate$);
    }
    onPrint(){
