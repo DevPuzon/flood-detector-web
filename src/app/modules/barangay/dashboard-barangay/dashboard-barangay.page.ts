@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'; 
 import { AngularFireDatabase } from '@angular/fire/database'; 
+import dateFormat from 'dateformat'; 
 import { Observable } from 'rxjs';
 declare function _lineChartCon(container:string,title:string,yAxisTitle:string,xAxisTitle:string,category:any[],series:any[],exporting:boolean):any; 
 
@@ -126,11 +127,14 @@ export class DashboardBarangayPage implements OnInit {
         //   name: '',
         //   data: water_levels$
         // }],false);
-        this.chart_water_distance =  _lineChartCon("chart_water_distance"," ", "Flood gauge height, cm", "Time",[],[{
+        
+        const timestamp_distances = distances.slice(Math.max(distances.length - 45, 0)).map((o)=>{return  dateFormat(o.timestamp, "h:MM:ss TT");}); 
+        const timestamp_flRate = flRate.slice(Math.max(flRate.length - 45, 0)).map((o)=>{return  dateFormat(o.timestamp, "h:MM:ss TT");}); 
+        this.chart_water_distance =  _lineChartCon("chart_water_distance"," ", "Flood gauge height, cm", "Time",timestamp_distances,[{
           name: ' ',
           data: distances$
         }],false);
-        this.chart_water_flow =  _lineChartCon("chart_water_flow_rate","","Liter","Time",[],[{
+        this.chart_water_flow =  _lineChartCon("chart_water_flow_rate","","Liter","Time",timestamp_flRate,[{
           name: ' ',
           data: flRate$
         }],false); 
@@ -167,6 +171,11 @@ export class DashboardBarangayPage implements OnInit {
         this.chart_water_distance.series[0].setData(distances$);
         // this.chart_water_level.series[0].setData(water_levels$);
         this.chart_water_flow.series[0].setData(flRate$);
+
+        const timestamp_distances = distances.slice(Math.max(distances.length - 45, 0)).map((o)=>{return  dateFormat(o.timestamp, "h:MM:ss TT");}); 
+        const timestamp_flRate = flRate.slice(Math.max(flRate.length - 45, 0)).map((o)=>{return  dateFormat(o.timestamp, "h:MM:ss TT");}); 
+        this.chart_water_distance.xAxis[0].setCategories(timestamp_distances);
+        this.chart_water_flow.xAxis[0].setCategories(timestamp_flRate);
       }
 
       this.isRot = false;

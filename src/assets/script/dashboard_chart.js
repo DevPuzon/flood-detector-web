@@ -58,7 +58,8 @@ function _pieChartCon(container,title,series){
 function _lineChartCon(container,title,
     yAxisTitle,xAxisTitle,
     category,series,exporting=true){
-     
+        console.log("_lineChartCon");
+     console.log(category);
     var chart = Highcharts.chart(container,{
         chart: {
             type: 'line'
